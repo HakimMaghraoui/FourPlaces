@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<forms:BaseContentPage xmlns:forms="clr-namespace:Storm.Mvvm.Forms;assembly=Storm.Mvvm.Forms"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Fourplaces;assembly=Fourplaces"            
+    mc:Ignorable="d"
+    x:Class="Fourplaces.Views.ConnectionPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="S'INSCRIRE"
+                     Command="{Binding RegisterCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <RelativeLayout>
+
+        
+
+
+        <Label x:Name="labelTitle"
+               HorizontalOptions="Center"
+            TextColor="Black"
+            Text="Connexion"
+            FontSize="Subtitle"
+               RelativeLayout.YConstraint = 
+               "{ConstraintExpression 
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=0,
+                Constant=20}"
+               RelativeLayout.WidthConstraint="{ConstraintExpression 
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=1,
+                Constant=0}"
+               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+            Property=Height,
+            Factor=0,
+            Constant=20}"/>
+
+        <Label x:Name="labelMail"
+            Text=" E-MAIL DE CONNEXION"
+            FontSize="Micro"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+            ElementName=labelTitle,Property=Y,Factor=1,Constant=30}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0.2,Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+            Property=Width,
+            Factor=0.6,
+            Constant=0}"
+               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+            ElementName=labelTitle,
+            Property=X,
+            Factor=0,
+            Constant=20}"/>
+
+        <Entry x:Name="entryMail" 
+               Text="{Binding Email}"
+               FontSize="12"
+               ClearButtonVisibility="WhileEditing"
+               Keyboard="Email"
+               ReturnType="Next"
+               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+            ElementName=labelMail,Property=Y,Factor=1,Constant=5}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+            ElementName=labelMail,Property=X,Factor=1,Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+            Property=Width,
+            Factor=0.6,
+            Constant=0}"
+               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+            ElementName=labelMail,
+            Property=X,
+            Factor=0,
+            Constant=40}"/>
+
+        <Label x:Name="labelPassword"
+            Text=" MOT DE PASSE"
+            FontSize="Micro"
+               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+            ElementName=entryMail,Property=Y,Factor=1,Constant=40}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+            ElementName=entryMail,Property=X,Factor=1,Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+            Property=Width,
+            Factor=0.6,
+            Constant=0}"
+               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+            ElementName=labelMail,
+            Property=X,
+            Factor=0,
+            Constant=20}"/>
+        
+        <Entry x:Name="entryPassword"
+            Text="{Binding Password}"
+            IsPassword="True"
+               VerticalOptions="End"
+            FontSize="12"
+            ClearButtonVisibility="WhileEditing"
+            Keyboard="Plain"
+            ReturnType="Done"
+            ReturnCommand="{Binding ConnectionCommand}"
+               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+            ElementName=labelPassword,Property=Y,Factor=1,Constant=5}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+            ElementName=labelPassword,Property=X,Factor=1,Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+            Property=Width,
+            Factor=0.6,
+            Constant=0}"
+               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+            ElementName=labelMail,
+            Property=Y,
+            Factor=0,
+            Constant=40}"
+            />
+
+
+        <Label x:Name="labelError"
+            Text="{Binding ErrorMsg}"
+               IsVisible="{Binding ErrorBool}"
+               TextColor="Red"
+               FontSize="Micro"
+               HorizontalTextAlignment="Center"
+               RelativeLayout.WidthConstraint="{ConstraintExpression 
+                Type=RelativeToParent,
+                Property=Width,
+                Factor=1,
+                Constant=10}"
+               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+            ElementName=entryPassword,Property=Y,Factor=1,Constant=40}"
+               />
+
+
+
+        <Button x:Name="buttonOk"
+            Command="{Binding ConnectionCommand}"
+                Text="Connexion"
+                IsEnabled="{Binding IsEnableButton}"
+                BackgroundColor="Accent"
+               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+            ElementName=entryPassword,Property=Y,Factor=1,Constant=80}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+            ElementName=entryPassword,Property=X,Factor=1,Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+            Property=Width,
+            Factor=0.6,
+            Constant=0}"
+               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+            Property=Y,
+            Factor=0,
+            Constant=40}"/>
+    </RelativeLayout>
+        
+    
+</forms:BaseContentPage>
